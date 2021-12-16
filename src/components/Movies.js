@@ -18,8 +18,12 @@ class Movies extends Component {
     })
   }
 
+  handleSelectedMovie = (event) => {
+    this.setState({selectedMovie: this.state.result[event.target.value]})
+  }
 
   render() {
+    console.log(this.state.selectedMovie)
 
     const { result } = this.state
     const movieTitles = result && result.map((el, i) => {
@@ -29,7 +33,7 @@ class Movies extends Component {
     return (
       <div className="movies">
         <h1>Select A Movie</h1>
-        <select>
+        <select onChange={this.handleSelectedMovie}>
           <option>Select a Movie</option>
           {movieTitles}
         </select>
