@@ -18,6 +18,15 @@ class App extends Component {
           <Route exact path="/">
             <Home/>
           </Route>
+          <Route path="/movies">
+            <Movies/>
+          </Route>
+          <Route path="/people">
+            <People/>
+          </Route>
+          <Route path="/locations">
+            <Locations/>
+          </Route>
         </Switch>
       </div>
     );
