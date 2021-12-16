@@ -13,19 +13,19 @@ class Locations extends Component {
 
 
   handleShowLocations = () => {
-    this.setState({locations: this.state.result.map(el => {
+    this.setState({locations: this.state.result.map((el, i) => {
       return (
-        <li>
+        <li key={i}>
           <p>Name: {el.name}</p>
           <p>Climate: {el.climate}</p>
           <p>Terrain: {el.terrain}</p>
         </li>
       )
-    })})
+    }), toggle: !this.state.toggle})
   }
 
   handleHideLocations = () => {
-    
+    this.setState({locations: null, toggle: !this.state.toggle})
   }
 
   componentDidMount() {
@@ -35,17 +35,20 @@ class Locations extends Component {
       this.setState({result})
     })
   }
-
+  
   render() {
     const {locations, toggle} = this.state
+
+    const button = toggle ? <button onClick={this.handleHideLocations} type="submit">
+    Hide Locations
+    </button> : <button onClick={this.handleShowLocations} type="submit">
+    Show Locations
+    </button>
+
     return (
       <div className="locations">
         <h1>List of Locations</h1>
-        {toggle ? <button onClick={this.handleHideLocations} type="submit">
-          Show Locations
-        </button> : <button onClick={this.handleShowLocations} type="submit">
-          Show Locations
-        </button>}
+        {button}
         <ul className='display-locations'>
           {locations}
         </ul>
