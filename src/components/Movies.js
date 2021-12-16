@@ -10,7 +10,14 @@ class Movies extends Component {
     }
   }
 
-  
+  componentDidMount() {
+    fetch("https://ghibliapi.herokuapp.com/films")
+    .then(response => response.json())
+    .then(result => {
+      this.setState({result})
+    })
+  }
+
 
   render() {
     return (
