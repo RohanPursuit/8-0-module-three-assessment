@@ -19,24 +19,35 @@ class Movies extends Component {
   }
 
   handleSelectedMovie = (event) => {
-    this.setState({selectedMovie: this.state.result[event.target.value]})
+    if(!event.target.value){
+      this.setState({selectedMovie: null})
+    } else {
+      this.setState({selectedMovie: this.state.result[event.target.value]})
+    }
+    
   }
 
   render() {
-    console.log(this.state.selectedMovie)
 
-    const { result } = this.state
+    const { result, selectedMovie: movie } = this.state
     const movieTitles = result && result.map((el, i) => {
-      return <option value={i}>{el.title}</option>
+      return <option key={i} value={i}>{el.title}</option>
     })
+
+    const displayInfo = movie && <div className='movie-info'>
+      <h2>Title: {movie.title}</h2>
+      <p>Release Date: {movie["release_date"]}</p>
+      <p>Description: {movie.description}</p>
+      </div>
 
     return (
       <div className="movies">
         <h1>Select A Movie</h1>
         <select onChange={this.handleSelectedMovie}>
-          <option>Select a Movie</option>
+          <option value="">Select a Movie</option>
           {movieTitles}
         </select>
+          {displayInfo}
       </div>
     );
   }
