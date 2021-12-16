@@ -9,10 +9,14 @@ class People extends Component {
     }
   }
 
+  handleUserInput = (event) => {
+    this.setState({userInput: event.target.value})
+  }
+
   render() {
     return (
       <div className="people">
-        <input type="text" />
+        <input onChange={this.handleUserInput} type="text" />
         <input type="submit" />
       </div>
     );
