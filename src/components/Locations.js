@@ -2,11 +2,18 @@ import {Component} from 'react'
 import "./Locations.css";
 
 class Locations extends Component {
+  constructor() {
+    super()
+    this.state = {
+      result: null
+    }
+  }
 
 
   handleClick = () => {
 
   }
+  
 
   render() {
     return (
