@@ -20,11 +20,18 @@ class Movies extends Component {
 
 
   render() {
+
+    const { result } = this.state
+    const movieTitles = result && result.map((el, i) => {
+      return <option value={i}>{el.title}</option>
+    })
+
     return (
       <div className="movies">
         <h1>Select A Movie</h1>
         <select>
           <option>Select a Movie</option>
+          {movieTitles}
         </select>
       </div>
     );
