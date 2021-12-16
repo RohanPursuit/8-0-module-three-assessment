@@ -2,13 +2,23 @@ import {Component} from 'react'
 import "./Movies.css";
 
 class Movies extends Component {
+  constructor(){
+    super()
+    this.state = {
+      result: null,
+      selectedMovie: null,
+    }
+  }
+
+  
 
   render() {
     return (
-      <div className="Movies">
-        <main>
-          <h1>Hello, world!</h1>
-        </main>
+      <div className="movies">
+        <h1>Select A Movie</h1>
+        <select>
+          <option>Select a Movie</option>
+        </select>
       </div>
     );
   }
