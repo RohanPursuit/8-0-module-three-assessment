@@ -5,15 +5,23 @@ class Locations extends Component {
   constructor() {
     super()
     this.state = {
-      result: null
+      result: null,
+      locations: null,
     }
   }
 
 
   handleClick = () => {
-
+    
   }
-  
+
+  componentDidMount() {
+    fetch("https://ghibliapi.herokuapp.com/locations")
+    .then(response => response.json())
+    .then(result => {
+      this.setState({result})
+    })
+  }
 
   render() {
     return (
