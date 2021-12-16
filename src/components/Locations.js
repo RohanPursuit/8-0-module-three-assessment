@@ -5,7 +5,7 @@ class Locations extends Component {
 
   render() {
     return (
-      <div className="Locations">
+      <div className="locations">
         <main>
           <h1>Hello, world!</h1>
         </main>
