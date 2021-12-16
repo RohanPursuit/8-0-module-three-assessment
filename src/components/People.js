@@ -36,7 +36,7 @@ class People extends Component {
       <p>{this.state.personFound?.name}</p>
       <p>{this.state.personFound?.age}</p>
       <p>{this.state.personFound?.gender}</p>
-    </> : <>"Not Found"</>
+    </> : <>Not Found</>
 
     return (
       <div className="people">
