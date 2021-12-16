@@ -30,8 +30,14 @@ class People extends Component {
       this.setState({result})
     })
   }
-
+  
   render() {
+    const displayInfo = this.state.personFound ? <>
+      <p>{this.state.personFound?.name}</p>
+      <p>{this.state.personFound?.age}</p>
+      <p>{this.state.personFound?.gender}</p>
+    </> : <>"Not Found"</>
+
     return (
       <div className="people">
         <h1>Search for a Person</h1>
@@ -39,9 +45,10 @@ class People extends Component {
         <button onClick={this.handleClick} type="submit">
           Submit
         </button>
-          {this.state.personFound?.name}
-          {this.state.personFound?.age}
-          {this.state.personFound?.gender}
+        <div className='person-info'>
+          {displayInfo}
+        </div>
+          
       </div>
     );
   }
