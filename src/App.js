@@ -1,6 +1,12 @@
 import {Component} from 'react'
 import "./App.css";
 import Navbar from './components/common/Navbar'
+import Locations from './components/Locations';
+import Movies from './components/Movies';
+import People from './components/People';
+import {Switch, Route} from 'react-router-dom'
+import Home from './components/Home';
+
 
 class App extends Component {
 
@@ -8,9 +14,11 @@ class App extends Component {
     return (
       <div className="app">
         <Navbar/>
-        <main>
-          <h1>Hello, world!</h1>
-        </main>
+        <Switch>
+          <Route exact path="/">
+            <Home/>
+          </Route>
+        </Switch>
       </div>
     );
   }
