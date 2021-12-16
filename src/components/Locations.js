@@ -12,7 +12,7 @@ class Locations extends Component {
   }
 
 
-  handleClick = () => {
+  handleShowLocations = () => {
     this.setState({locations: this.state.result.map(el => {
       return (
         <li>
@@ -24,6 +24,10 @@ class Locations extends Component {
     })})
   }
 
+  handleHideLocations = () => {
+    
+  }
+
   componentDidMount() {
     fetch("https://ghibliapi.herokuapp.com/locations")
     .then(response => response.json())
@@ -33,13 +37,15 @@ class Locations extends Component {
   }
 
   render() {
-    const {locations} = this.state
+    const {locations, toggle} = this.state
     return (
       <div className="locations">
         <h1>List of Locations</h1>
-        <button onClick={this.handleClick} type="submit">
+        {toggle ? <button onClick={this.handleHideLocations} type="submit">
           Show Locations
-        </button>
+        </button> : <button onClick={this.handleShowLocations} type="submit">
+          Show Locations
+        </button>}
         <ul className='display-locations'>
           {locations}
         </ul>
