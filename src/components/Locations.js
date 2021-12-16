@@ -12,7 +12,15 @@ class Locations extends Component {
 
 
   handleClick = () => {
-    
+    this.setState({locations: this.state.result.map(el => {
+      return (
+        <li>
+          <p>Name: {el.name}</p>
+          <p>Climate: {el.climate}</p>
+          <p>Terrain: {el.terrain}</p>
+        </li>
+      )
+    })})
   }
 
   componentDidMount() {
@@ -24,11 +32,16 @@ class Locations extends Component {
   }
 
   render() {
+    const {locations} = this.state
     return (
       <div className="locations">
+        <h1>List of Locations</h1>
         <button onClick={this.handleClick} type="submit">
           Show Locations
         </button>
+        <ul className='display-locations'>
+          {locations}
+        </ul>
       </div>
     );
   }
