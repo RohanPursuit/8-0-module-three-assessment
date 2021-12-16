@@ -3,12 +3,13 @@ import "./Locations.css";
 
 class Locations extends Component {
 
+
   render() {
     return (
       <div className="locations">
-        <main>
-          <h1>Hello, world!</h1>
-        </main>
+        <button type="submit">
+          Show Locations
+        </button>
       </div>
     );
   }
