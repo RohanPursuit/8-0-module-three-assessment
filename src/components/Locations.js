@@ -7,6 +7,7 @@ class Locations extends Component {
     this.state = {
       result: null,
       locations: null,
+      toggle: false
     }
   }
 
